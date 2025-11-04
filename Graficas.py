@@ -68,6 +68,9 @@ def plotsqrt (res):
                     y= str(a) + '+ i'
             if a == 0:
                 y = str(b) + 'i'
+            ax.grid()
+            ax.axhline(y = 0, color = 'k')
+            ax.axvline(x = 0, color = 'k')
             ax.annotate(y, xy=(a,b), xytext=(a,b))  
         mat.show()          
 
@@ -90,4 +93,5 @@ match True: #este menu regresa la operacion deseada junto a la grafica respectiv
     case _ if "raiz" in elec:
         x = op.sqrt(z)
         plotsqrt(x)
+
 
