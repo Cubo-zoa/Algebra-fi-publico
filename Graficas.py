@@ -49,6 +49,9 @@ def plot1 (res):
 def plotsqrt (res):
         fig, ax = mat.subplots()
         ax.plot()
+        ax.grid()
+        ax.axhline(y = 0, color = 'k')
+        ax.axvline(x = 0, color = 'k')
         ax.axis((-10,10,-10,10))
         for i in range(len(res)):
             easy1 = round(s.N(s.sympify(res[i][0])))
@@ -68,9 +71,6 @@ def plotsqrt (res):
                     y= str(a) + '+ i'
             if a == 0:
                 y = str(b) + 'i'
-            ax.grid()
-            ax.axhline(y = 0, color = 'k')
-            ax.axvline(x = 0, color = 'k')
             ax.annotate(y, xy=(a,b), xytext=(a,b))  
         mat.show()          
 
@@ -93,5 +93,6 @@ match True: #este menu regresa la operacion deseada junto a la grafica respectiv
     case _ if "raiz" in elec:
         x = op.sqrt(z)
         plotsqrt(x)
+
 
 
