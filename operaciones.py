@@ -97,3 +97,13 @@ def sqrt(z):
         argroots.append(temp)
         k += 1
     return argroots
+
+def pot(z):
+    n = int(input("Entra el exponente"))
+    formasz = CC.complejo(z)
+    mod = s.simpify(formasz[1][0]) #Para pasar raiz de algo a decimal
+    arg = s.simpify(formasz[1][1]) #Por si el argumento es raro, borrar si no funciona
+    mod = mod**n 
+    arg = arg*n
+    
+    return 
