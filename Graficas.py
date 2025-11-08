@@ -93,6 +93,9 @@ match True: #este menu regresa la operacion deseada junto a la grafica respectiv
     case _ if "raiz" in elec:
         x = op.sqrt(z)
         plotsqrt(x)
+    case _ if "potencia" in elec:
+        x = op.pot(z)
+        plot1(x)
 
 
 
