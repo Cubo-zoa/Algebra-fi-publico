@@ -97,3 +97,21 @@ def sqrt(z):
         argroots.append(temp)
         k += 1
     return argroots
+
+def pot(z):
+    n = int(input("Entra el exponente"))
+    formasz = CC.complejo(z)
+    mod = s.simpify(formasz[1][0]) #Para pasar raiz de algo a decimal
+    arg = s.simpify(formasz[1][1]) #Por si el argumento es raro, borrar si no funciona
+    mod = mod**n 
+    arg = arg*n
+    if arg > 360: #este bucle convierte los angulos fuera el intervalo de trabajo al intervalo trabajado
+        while arg >360:
+            arg -= 360
+    elif arg < 0:
+        while arg < 0:
+            arg += 360
+    polnum = str(int(mod)) + 'cis' + str(int(arg)) # hecho cadena para poder ser procesado por la funcion de conversiones
+    num = CC.complejo(polnum) # los resultados en todas sus formas.
+    return num
+
