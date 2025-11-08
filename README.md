@@ -17,5 +17,5 @@ Polar
 ✓  Multiplicacion
 ✓  Division
 ✓  Raiz enésima
-X  potencia
+✓  potencia
 
