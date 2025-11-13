@@ -3,8 +3,8 @@ Holiii ignoren mis if else o les pego
 Binomico
 ✓  Suma
 ✓  Resta
-X  Multiplicacion
-X  Division
+✓  Multiplicacion
+✓  Division
 ✓  Conjugado
   
 Exponencial
