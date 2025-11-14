@@ -88,23 +88,22 @@ def conj(z):
     num = CC.complejo (binomnum)
     return num
 
-def sqrt(z):
-    n = int(input("entra la potencia de la raiz")) # guarda la enesima raiz
+def sqrt(z,n):
     formasz = CC.complejo(z)
     argroots = [] #lista vacia para contener cuantas raices se quiera.
     k = 0 #constante para sumarle los angulos
     mod = s.sympify(formasz[1][0]) 
     arg = s.sympify(formasz[1][1])
+    n = int(n)
     modroot = s.root(mod, n) #la raiz enesima del modulo
     for i in range (0,n): #bucle que añade a la lista las soluciones
         root = (s.deg(arg) + 360*k)/n #formula del argumento
-        temp = (str(modroot),str(root)) #tupla para crear un tipo de matriz
+        temp = (int(modroot),int(root)) #tupla para crear un tipo de matriz
         argroots.append(temp)
         k += 1
     return argroots
 
-def pot(z):
-    n = int(input("Entra el exponente"))
+def pot(z,n):
     formasz = CC.complejo(z)
     mod = s.sympify(formasz[1][0]) #Para pasar raiz de algo a decimal
     arg = s.sympify(formasz[1][1]) #Por si el argumento es raro, borrar si no funciona
@@ -119,6 +118,7 @@ def pot(z):
     polnum = str(int(mod)) + 'cis' + str(int(arg)) # hecho cadena para poder ser procesado por la funcion de conversiones
     num = CC.complejo(polnum) # los resultados en todas sus formas.
     return num
+
 
 
 
