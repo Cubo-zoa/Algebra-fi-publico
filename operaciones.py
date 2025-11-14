@@ -57,10 +57,15 @@ def add(z,w):
     formasw = CC.complejo(w)
     a = s.sympify(formasz[0][0])+s.sympify(formasw[0][0])# en este caso se utiliza la forma binómica y se resta parte real con real y imaginario con imaginario
     b = s.sympify(formasz[0][1])+s.sympify(formasw[0][1])
-    if b == 0:
-        binomnum = str(a)
-    else:
-        binomnum = str(a) + str(b) + "i"
+    match b:
+        case _ if b == 0:
+            binomnum = str(a)
+        case _ if b < 0:
+            binomnum = str(a) + "+" + str(b) + "i"
+        case _ if b == 1:
+            binomnum = str(a) + "+i"
+        case _:
+            binomnum = str(a) + str(b) + "i"
     num = CC.complejo(binomnum)
     return num
 
@@ -114,5 +119,6 @@ def pot(z):
     polnum = str(int(mod)) + 'cis' + str(int(arg)) # hecho cadena para poder ser procesado por la funcion de conversiones
     num = CC.complejo(polnum) # los resultados en todas sus formas.
     return num
+
 
 
