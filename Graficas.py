@@ -74,28 +74,5 @@ def plotsqrt (res):
             ax.annotate(y, xy=(a,b), xytext=(a,b))  
         mat.show()          
 
-match True: #este menu regresa la operacion deseada junto a la grafica respectiva.
-    case _ if "mult" in elec:
-        x = op.multi(z,w)
-        plot1(x)
-    case _ if "div" in elec:
-        x = op.div(z,w)
-        plot1(x)
-    case _ if "suma" in elec:
-        x = op.add(z,w)
-        plot1(x)
-    case _ if "resta" in elec:
-        x = op.sub(z,w)
-        plot1(x)
-    case _ if "conj" in elec:
-        x = op.conj(z)
-        plot1(x)
-    case _ if "raiz" in elec:
-        x = op.sqrt(z)
-        plotsqrt(x)
-    case _ if "potencia" in elec:
-        x = op.pot(z)
-        plot1(x)
-
 
 
