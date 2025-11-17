@@ -16,7 +16,7 @@ def complejo(x):
             if spl[0]=='': # si el primer elem-2ento de la lista de antes esta vacía, significa que el radio es 1 (cis180 por ejemplo tiene r de 1) 
                 r = 1
             else:
-                r = float(spl[0]) #sin el if de antes te da error, no puedes convertir "nada" a un entero.
+                r = int(spl[0]) #sin el if de antes te da error, no puedes convertir "nada" a un entero.
         
             ang = s.rad(s.sympify(spl[1].replace('°', '')))   
             a = s.cos(ang)*r # round para que no te de un valor muy chico, a pesar de que sea 0 el resultado
@@ -104,6 +104,7 @@ def complejo(x):
                 pol = [r, s.deg(ang)]
 
     return ([binom,exp,pol])
+
 
 
 
