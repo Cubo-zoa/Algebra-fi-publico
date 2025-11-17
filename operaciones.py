@@ -104,6 +104,7 @@ def sqrt(z,n):
     return argroots
 
 def pot(z,n):
+    n = int(n)
     formasz = CC.complejo(z)
     mod = s.sympify(formasz[1][0]) #Para pasar raiz de algo a decimal
     arg = s.sympify(formasz[1][1]) #Por si el argumento es raro, borrar si no funciona
@@ -118,6 +119,7 @@ def pot(z,n):
     polnum = str(int(mod)) + 'cis' + str(int(arg)) # hecho cadena para poder ser procesado por la funcion de conversiones
     num = CC.complejo(polnum) # los resultados en todas sus formas.
     return num
+
 
 
 
