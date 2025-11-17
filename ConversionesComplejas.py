@@ -104,3 +104,4 @@ def complejo(x):
                 pol = [r, s.deg(ang)]
 
     return ([binom,exp,pol])
+
