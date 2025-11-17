@@ -41,7 +41,7 @@ def sub(z,w):
             binomnum = str(a)
         case _ if b == 1:
             binomnum = str(a) + '+i'
-        case _ if b > 1:
+        case _ if b > 0:
             binomnum = str(a) + '+' + str(b) + 'i'
         case _:
             binomnum = str(a) + str(b) + "i"
@@ -60,7 +60,7 @@ def add(z,w):
     match b:
         case _ if b == 0:
             binomnum = str(a)
-        case _ if b > 1:
+        case _ if b > 0:
             binomnum = str(a) + "+" + str(b) + "i"
         case _ if b == 1:
             binomnum = str(a) + "+i"
@@ -118,6 +118,7 @@ def pot(z,n):
     polnum = str(int(mod)) + 'cis' + str(int(arg)) # hecho cadena para poder ser procesado por la funcion de conversiones
     num = CC.complejo(polnum) # los resultados en todas sus formas.
     return num
+
 
 
 
