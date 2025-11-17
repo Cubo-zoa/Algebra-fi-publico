@@ -28,7 +28,7 @@ def normalizer(re):
             binom= str(a)
         case _ if b < 0:
             binom= str(a) + str(b) + 'i'
-        case _ if b > 1:
+        case _ if b > 0:
             binom= str(a) + '+' + str(b) + 'i'
         case _ if b == 1:
             binom= str(a) + '+ i'
@@ -37,9 +37,21 @@ def normalizer(re):
     
     if re[1][0] == 1:
         exp = 'e^' + str(s.rad(s.N(re[1][1]))) + 'i'
+        if re[2][1] > 360:
+            while re[2][1] > 360: 
+                re[2][1] -=360
+        elif re[2][1]< 360:
+            while re[2][1] > 360:
+                re[2][1] -=360
         pol = 'cis' + str(round(s.N(re[2][1])))
     else:
         exp= str(re[1][0]) + 'e^' + str(s.rad(s.N(re[1][1])))  + 'i'
+        if re[2][1] > 360:
+            while re[2][1] > 360: 
+                re[2][1] -=360
+        elif re[2][1]< 360:
+            while re[2][1] > 360:
+                re[2][1] -=360
         pol = str(re[2][0]) + 'cis' + str(round(s.N(re[2][1])))
     return binom, exp, pol
 
@@ -600,3 +612,4 @@ calc.protocol("WM_DELETE_WINDOW", _on_closing)
 
 
 calc.mainloop()
+
