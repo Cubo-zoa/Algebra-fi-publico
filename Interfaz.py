@@ -37,22 +37,24 @@ def normalizer(re):
     
     if re[1][0] == 1:
         exp = 'e^' + str(s.rad(s.N(re[1][1]))) + 'i'
-        if re[2][1] > 360:
-            while re[2][1] > 360: 
-                re[2][1] -=360
-        elif re[2][1]< 360:
-            while re[2][1] > 360:
-                re[2][1] -=360
-        pol = 'cis' + str(round(s.N(re[2][1])))
+        temp = str(round(s.N(re[2][1])))
+        if temp > 360:
+            while temp > 360: 
+                temp -=360
+        elif temp< 360:
+            while temp > 360:
+                temp -=360
+        pol = 'cis' + temp
     else:
         exp= str(re[1][0]) + 'e^' + str(s.rad(s.N(re[1][1])))  + 'i'
-        if re[2][1] > 360:
-            while re[2][1] > 360: 
-                re[2][1] -=360
-        elif re[2][1]< 360:
-            while re[2][1] > 360:
-                re[2][1] -=360
-        pol = str(re[2][0]) + 'cis' + str(round(s.N(re[2][1])))
+        temp = str(round(s.N(re[2][1])))
+        if temp > 360:
+            while temp > 360: 
+                temp -=360
+        elif temp< 360:
+            while temp > 360:
+                temp -=360
+        pol = 'cis' + temp
     return binom, exp, pol
 
 #Funcion para imprimir el complejo resultante
@@ -612,4 +614,5 @@ calc.protocol("WM_DELETE_WINDOW", _on_closing)
 
 
 calc.mainloop()
+
 
