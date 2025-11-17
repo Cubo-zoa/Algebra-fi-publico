@@ -18,7 +18,7 @@ def complejo(x):
             else:
                 r = int(spl[0]) #sin el if de antes te da error, no puedes convertir "nada" a un entero.
         
-            ang = s.rad(int(spl[1].replace('°', '')))   
+            ang = s.rad(s.sympify(spl[1].replace('°', '')))   
             a = s.cos(ang)*r # round para que no te de un valor muy chico, a pesar de que sea 0 el resultado
             b = s.sin(ang)*r
 
@@ -104,4 +104,5 @@ def complejo(x):
                 pol = [r, s.deg(ang)]
 
     return ([binom,exp,pol])
+
 
