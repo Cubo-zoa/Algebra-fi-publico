@@ -107,7 +107,7 @@ def pot(z,n):
     n = int(n)
     formasz = CC.complejo(z)
     mod = s.sympify(formasz[1][0]) #Para pasar raiz de algo a decimal
-    arg = s.sympify(formasz[1][1]) #Por si el argumento es raro, borrar si no funciona
+    arg = s.sympify(formasz[2][1]) #Por si el argumento es raro, borrar si no funciona
     mod = mod**n 
     arg = arg*n
     if arg > 360: #este bucle convierte los angulos fuera el intervalo de trabajo al intervalo trabajado
@@ -119,6 +119,7 @@ def pot(z,n):
     polnum = str(s.sympify(mod)) + 'cis' + str(s.sympify(arg)) # hecho cadena para poder ser procesado por la funcion de conversiones
     num = CC.complejo(polnum) # los resultados en todas sus formas.
     return num
+
 
 
 
