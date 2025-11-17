@@ -10,7 +10,7 @@ calc.geometry("1300x630")
 
 calc.title("Calculadora de numeros complejos")
 
-#Declaramos frames para agrupar
+#Declaramos frames para agrupar las diferentes cosas dentro de la interfaz
 
 grafic = tk.Frame(calc)
 buttons = tk.Frame(calc)
@@ -20,6 +20,7 @@ notas = tk.Frame(calc)
 
 #Funciones para graficar
 
+#Esta funcion transforma los valores unitarios a la forma para imprimir
 def normalizer(re):
     a = re[0][0]
     b = re[0][1]
@@ -78,6 +79,7 @@ def resultantesqrt(pol):
     comrp.insert(0, pol)
     comrp.config(state= "readonly")
 
+#Esta funcion grafica todas las operaciones menos las raices
 def plot1 (res):
         global fig
         global canvas
@@ -104,7 +106,8 @@ def plot1 (res):
         canvas.get_tk_widget().pack(side = "right", padx = 40)
 
         return easy1, easy2
-    
+
+#Esta funcion gráfica las raices
 def plotsqrt (res):
         global fig
         global canvas
@@ -141,12 +144,12 @@ cont = 0
 
 n = 0
 
-#Desabilitan los botones si no se van a usar
+#Listas de botones para numeros, operadores que no se pueden introducir en las cajas de texto de complejos y operadores generales respectivamente
 bnum = []
 bonlyop = []
 bgeneralop = []
 
-#Grafica Inicial
+#Grafica Inicial, es para que la interfaz no se vea vacia al principio pero no tiene ningun uso despues
 fig = mat.figure(figsize=(5, 4))
 ax = fig.add_subplot(111)
 ax.set_title("Plano de Argand")
@@ -173,7 +176,7 @@ def actualizar():
         for boton in bnum:
             boton.config(state='normal')
 
-#Desabilita todos los operadoes cuando se va a introducir potencia/raiz
+#Desabilita todos los operadores cuando se va a introducir  la magnitud de potencia/raiz
 def actallop():
     if cont == 1:
         for boton in bgeneralop:
@@ -257,7 +260,7 @@ def click_boton3(valor):
         com2.insert(k, valor)
         k += 3
 
-#Funcion para que el operador solo sea 1 caracter
+#Funcion para que el operador solo sea 1 caracter y no se puedan introducir mas
 def caracter(valor):
     if len(valor) <=1:
         return 1
@@ -404,6 +407,7 @@ def reset():
     actop()
     actallop()
 
+#Cierra la interfaz correctamente
 def _on_closing():
     global plot1
     """
@@ -411,7 +415,7 @@ def _on_closing():
     """
     print("Cerrando la aplicación...")
     
-    # 1. Cierra todas las figuras de Matplotlib (¡Importante!)
+    # 1. Cierra todas las figuras de Matplotlib (Esto para que no sigan corriendo en segundo plano)
     mat.close('all')
     
     # 2. Destruye tu ventana principal 'calc'
@@ -441,9 +445,10 @@ pr = tk.Entry(ncomp, width = 2, font = "Helvetica 15")
 #Cuadros de texto para intoducir numeros complejos
 com1 = tk.Entry(ncomp, font = "Helvetica 15")
 com2 = tk.Entry(ncomp, font = "Helvetica 15")
+#Esta parte es para que lea constantemente el estado de la caja para el segundo complejo y deshabilitarlo con la funcion correspondiente
 c2 = com2.cget('state')
 
-#Etiquetas para operar con los botones
+#Etiquetas de indicadores de los botones
 etiquetanum=tk.Label(buttons, text = "Numeros")
 etiquetasimb = tk.Label(buttons, text = "Simbolos")
 etiquetaop=tk.Label(buttons, text = "Operadores")
@@ -502,7 +507,7 @@ bnull = tk.Button(buttons, text = "AC", width= 10, height = 4 , bg = '#FFDAB9', 
 bdel = tk.Button(buttons,text = "DEL", width= 10, height = 4 , bg = '#FFDAB9', activebackground = "#FFA500", command = lambda: mfinal())
 breset = tk.Button(buttons,text = "RESET", width= 10, height = 4 , bg = '#FFA07A', activebackground = "red", command = lambda: reset())
 
-#Botones de otros simboloes
+#Botones de otros simbolos (dot es punto)
 bdot = tk.Button(buttons, text = "•", width= 10, height = 4, bg = '#F8C8DC', activebackground = "pink", command = lambda: click_boton(".") )
 bresult = tk.Button(buttons, text = "=", width=10, height = 4 , bg = '#C1FFC1', activebackground = "green", command = lambda: operar())
 bans = tk.Button(buttons, text = "ANS", width = 10, height = 4, bg = '#C1FFC1', activebackground = "green", command = lambda: ans())
@@ -534,6 +539,7 @@ etiquetares = tk.Label(notas, text = "•Para operar oprima el boton de =")
 
 #Desde aqui empiezan posiciones para todos los widgets
 
+#Deshabilita botones numericos al principio ya que lo primero que se pregunta es el operador
 actualizar()
 
 #Posicion para boton cis y e
@@ -617,6 +623,7 @@ calc.protocol("WM_DELETE_WINDOW", _on_closing)
 
 
 calc.mainloop()
+
 
 
 
