@@ -5,7 +5,7 @@ def complejo(x):
 
     r = 0
     ang = 0
-
+    x = x.replace('π', str(s.pi))
     match True:
         case _ if re.fullmatch(r'[^\diI * ]+', x): #checa si el numero es válido. ejemplo si entra "1-2avs" no será un numero valido. OJO un numero "valido" con espacios ("1 - 2i") tampoco será válido.
             return("Numero no valido")
@@ -18,7 +18,7 @@ def complejo(x):
             else:
                 r = int(spl[0]) #sin el if de antes te da error, no puedes convertir "nada" a un entero.
         
-            ang = s.rad(int(spl[1]))    
+            ang = s.rad(int(spl[1].replace('°', '')))   
             a = s.cos(ang)*r # round para que no te de un valor muy chico, a pesar de que sea 0 el resultado
             b = s.sin(ang)*r
 
@@ -102,4 +102,5 @@ def complejo(x):
             else:
                 exp = [r, ang] 
                 pol = [r, s.deg(ang)]
+
     return ([binom,exp,pol])
