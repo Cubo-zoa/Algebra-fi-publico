@@ -12,7 +12,7 @@ def multi(z,w):
     elif arg < 0:
         while arg < 0:
             arg += 360
-    polnum = str(int(mod)) + 'cis' + str(int(arg)) # hecho cadena para poder ser procesado por la funcion de conversiones
+    polnum = str(s.sympify(mod)) + 'cis' + str(s.sympify(arg)) # hecho cadena para poder ser procesado por la funcion de conversiones
     num = CC.complejo(polnum) # los resultados en todas sus formas.
     return num
 
@@ -27,7 +27,7 @@ def div(z,w): #esta parte es igual a la multiplicacion, solo divide para el modu
     elif arg < 0:
         while arg < 0:
             arg += 360
-    polnum = str(int(mod)) + 'cis' + str(int(arg))
+    polnum = str(s.sympify(mod)) + 'cis' + str(s.sympify(arg))
     num = CC.complejo(polnum)
     return num
 
@@ -98,7 +98,7 @@ def sqrt(z,n):
     modroot = s.root(mod, n) #la raiz enesima del modulo
     for i in range (0,n): #bucle que añade a la lista las soluciones
         root = (s.deg(arg) + 360*k)/n #formula del argumento
-        temp = (int(modroot),int(root)) #tupla para crear un tipo de matriz
+        temp = (s.sympify(modroot),s.sympify(root)) #tupla para crear un tipo de matriz
         argroots.append(temp)
         k += 1
     return argroots
@@ -116,9 +116,10 @@ def pot(z,n):
     elif arg < 0:
         while arg < 0:
             arg += 360
-    polnum = str(int(mod)) + 'cis' + str(int(arg)) # hecho cadena para poder ser procesado por la funcion de conversiones
+    polnum = str(s.sympify(mod)) + 'cis' + str(s.sympify(arg)) # hecho cadena para poder ser procesado por la funcion de conversiones
     num = CC.complejo(polnum) # los resultados en todas sus formas.
     return num
+
 
 
 
