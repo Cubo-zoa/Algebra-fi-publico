@@ -503,7 +503,7 @@ bnum.append(be)
 etiquetan3 = tk.Label(result, text = "Complejo Resultante")
 etiquetafb = tk.Label(result, text = "Forma Binomica")
 etiquetafp = tk.Label(result, text = "Forma Polar")
-etiquetafe = tk.Label(result, text = "Forma Polar")
+etiquetafe = tk.Label(result, text = "Forma Exponencial")
 comrb = tk.Entry(result, state = "readonly", font = "Helvetica 15", bg = "white")
 comrp = tk.Entry(result, state = "readonly", font = "Helvetica 15", bg = "white")
 comre = tk.Entry(result, state = "readonly", font = "Helvetica 15", bg = "white")
@@ -597,5 +597,6 @@ etiquetares.grid(row = 4, column = 0)
 #Cierra la grafica para que no quede en segundo plano
 
 calc.protocol("WM_DELETE_WINDOW", _on_closing)
+
 
 calc.mainloop()
