@@ -104,7 +104,7 @@ def plot1 (res):
         canvas.get_tk_widget().pack(side = "right", padx = 40)
 
         return easy1, easy2
-
+    
 def plotsqrt (res):
         global fig
         global canvas
@@ -123,25 +123,16 @@ def plotsqrt (res):
             easy1 = round(s.N(s.sympify(res[i][0])))
             easy2 = round(s.N(s.sympify(res[i][1])))
             easy3 = CC.complejo(str(easy1) + "cis" + str(easy2))
+            easy4 = normalizer(easy3)
             a = s.sympify(easy3[0][0])
             b = s.sympify(easy3[0][1])
             ax.annotate('',xy=(a,b),xytext=(0,0), arrowprops=dict(arrowstyle='->', color='red',lw=1.5))
-            match b:
-                case _ if b == 0:
-                    y= str(a)
-                case _ if b < 0:
-                    y= str(a) + str(b) + 'i'
-                case _ if b > 1:
-                    y= str(a) + '+' + str(b) + 'i'
-                case _ if b == 1:
-                    y= str(a) + '+ i'
-            if a == 0:
-                y = str(b) + 'i'
-            ax.annotate(y, xy=(a,b), xytext=(a,b)) 
+            t = str(easy4[1]) + '\n' +  str(easy4[2])
+            ax.annotate(t, xy=(a,b), xytext=(a,b))   
         canvas = FigureCanvasTkAgg(fig, master = grafic)
         canvas.draw()
         canvas.get_tk_widget().pack(side = "right", padx = 40)
-
+    
 #Contadores que se usan para escribir en los cuadros de texto
 j = 0
 k = 0
@@ -626,6 +617,7 @@ calc.protocol("WM_DELETE_WINDOW", _on_closing)
 
 
 calc.mainloop()
+
 
 
 
