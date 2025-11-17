@@ -125,7 +125,19 @@ def plotsqrt (res):
             easy3 = CC.complejo(str(easy1) + "cis" + str(easy2))
             a = s.sympify(easy3[0][0])
             b = s.sympify(easy3[0][1])
-            ax.annotate('',xy=(a,b),xytext=(0,0), arrowprops=dict(arrowstyle='->', color='red',lw=1.5))  
+            ax.annotate('',xy=(a,b),xytext=(0,0), arrowprops=dict(arrowstyle='->', color='red',lw=1.5))
+            match b:
+                case _ if b == 0:
+                    y= str(a)
+                case _ if b < 0:
+                    y= str(a) + str(b) + 'i'
+                case _ if b > 1:
+                    y= str(a) + '+' + str(b) + 'i'
+                case _ if b == 1:
+                    y= str(a) + '+ i'
+            if a == 0:
+                y = str(b) + 'i'
+            ax.annotate(y, xy=(a,b), xytext=(a,b)) 
         canvas = FigureCanvasTkAgg(fig, master = grafic)
         canvas.draw()
         canvas.get_tk_widget().pack(side = "right", padx = 40)
@@ -614,6 +626,7 @@ calc.protocol("WM_DELETE_WINDOW", _on_closing)
 
 
 calc.mainloop()
+
 
 
 
