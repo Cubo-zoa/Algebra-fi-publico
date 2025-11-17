@@ -10,12 +10,12 @@ Binomico
 Exponencial
 ✓  Multiplicacion ✓
 ✓  Division ✓
-✓  Raiz enésima
-✓  potencia
+✓  Raiz enésima ✓
+✓  potencia ✓
 
 Polar
 ✓  Multiplicacion ✓
 ✓  Division ✓
-✓  Raiz enésima
+✓  Raiz enésima ✓
 ✓  potencia ✓
 
