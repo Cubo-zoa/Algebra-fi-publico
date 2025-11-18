@@ -6,3 +6,4 @@ No usar parentesis o "°" en la forma polar o exponencial.
 Presionar "Enter" cada vez que se selecciona un operador o entra un numero.
 La caja de resultados puede parecer que oculta el resultado completo. Con el cursor darle clic y arrastrar a la derecha para ver el resultado completo.
 
+
